@@ -1,0 +1,21 @@
+{
+  "name": "phutalay",
+  "authors": [
+    "TheNineInwKung <nine4567@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fullcalendar": "^3.9.0"
+  }
+}

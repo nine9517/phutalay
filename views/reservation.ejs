@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/dist/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/bower_components/fullcalendar/dist/fullcalendar.css">
+    <title>Reservation</title>
+</head>
+
+<body>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade font" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font" id="exampleModalLabel">RESERVATION</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <p id="checkin_nameCus">Mr.Supisara Praittinawa</p>
+                        <p>วันที่เข้าพัก <span id="checkin_dateS">26/10/2561 12.00</span> </p>
+                        <p>วันครบกำหนดเข้าพัก <span id="checkin_dateE">26/10/2561 12.00</span></p>
+                        <p>ราคารวม <span id="checkin_price">1000</span></p>
+                        <p>จ่ายแล้ว: <span id="checkin_pay">1000</span></p>
+                        <p>คงเหลือค้างชำระ <span id="checkin_remaining">1000</span></p>
+                    <br>
+                    <h5 class="font">ROOM</h5>
+                    <div id="checkin_roomtype">
+                    <p>Room Type: Single room Price: 490 Room:A001</p>
+                    <p>Room Type: Double room Price: 590 Room:B001</p>
+                    </div>
+                    <br>
+                    <h5 class="font">Expenses</h5>
+                    <input type="text" placeholder="" value="แก้วแตก">
+                    <input type="text" placeholder="" value="150 THB">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary " style="width:100%;">Payment</button>
+                    <button type="button" class="btn btn-success " style="width:100%;">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <form action="/CheckIn" method="post">
+    <div class="modal fade font" id="checkinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font" id="exampleModalLabel">RESERVATION</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="checkInId"/>
+                    <p id="checkin_nameCus">Mr.Supisara Praittinawa</p>
+                    <p>วันที่เข้าพัก <span id="checkin_dateS">26/10/2561 12.00</span> </p>
+                    <p>วันครบกำหนดเข้าพัก <span id="checkin_dateE">26/10/2561 12.00</span></p>
+                    <p>ราคารวม <span id="checkin_price">1000</span></p>
+                    <p>จ่ายแล้ว: <span id="checkin_pay">1000</span></p>
+                    <p>คงเหลือค้างชำระ <span id="checkin_remaining">1000</span></p>
+                    <br>
+                    <h5 class="font">ROOM</h5>
+                    <div id="checkin_roomtype">
+                            <p>Room Type: Single room</p>
+                            <select class="form-control" id="sel1">
+                                <option>A001</option>    
+                            </select>
+                            <p>Room Type: Double room</p>
+                            <select class="form-control" id="sel1">
+                                <option>B001</option>  
+                            </select>
+                    </div>
+                    
+                    <br>
+                    <button type="button" class="btn btn-primary" style="float:right;">Payment</button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success " style="width:100%;">Check In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+
+
+
+    <div class="blockcontent">
+        <div class="row sidemenu font">
+            <div class="col-3" style="min-width: 300px; max-width: 300px ; background-color: #ffffff; border-right: 10px solid  #1b3863">
+                <div id="menuside">
+                    
+                <center>
+                    <img src="/img/logo.png" width="70%" style="margin-top:15px">
+                    
+                    <img style="margin-top:15px" src="/img/profile.png" width="50%">
+                    <p class="text-dark" style="margin-top:15px; font-size: 20px">Supisara Presittinawa</p>
+                    <p class="text-primary" style="margin-top:-20px;">แคชเชียร์<p>
+                </center>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+                        aria-controls="v-pills-home" aria-selected="true">EMPLOYEE</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
+                        aria-controls="v-pills-profile" aria-selected="false">CUSTOMER</a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+                        aria-controls="v-pills-messages" aria-selected="false">RESERVATION</a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+                        aria-controls="v-pills-settings" aria-selected="false">ROOM</a>
+                    
+                </div>
+            </div>
+            </div>
+            <div class="col background">
+                <div class="dropdown" style="margin-top: 15px; text-align: right; ">
+                    <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Supisara Presittinawa
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="#">Edit Profile</a>
+                    </div>
+                </div>
+                <div style="border-left: 6px solid #1b3863; padding-left: 5px; margin-left: 10px; margin-top: 15px">
+
+                    <span>
+                        <h1 class="font" style="color:#ffffff; float:left;"> RESERVATION </h1>
+                        <button type="button" class="btn btn-primary" style="margin-top:15px; margin-left:10px;"
+                            data-toggle="modal" data-target="#addModal">
+                            ADD
+                        </button>
+                    </span>
+                </div>
+                <div style="background-color: #fff; margin-top: 30px;margin-bottom:30px;border-radius: 10px;padding:15px;">
+                    <div id='calendar'></div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <form id="reV_F" method="post" action="/add/reservation">
+    <div class="modal fade " id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header font">
+                    <h5 class="modal-title font " id="exampleModalLabel">RESERVATION</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body font">
+                    <p>Date Start</p>
+                    <input class="form-control" required type="date" id="RevDateS" name="reV_dateS" style="width:100%;" placeholder="">
+                    <p>Date End</p>
+                    <input class="form-control" required type="date" id="RevDateE" name="reV_dateE" style="width:100%;" placeholder="">
+                    <button class="btn btn-primary" type="button" onclick="searchRoom()" style="float: right; margin-top:20px; ">Search</button>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">RoomType</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Busy</th>
+                                <th scope="col">All</th>
+                                <th scope="col">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="res_roomType">
+                            
+                        </tbody>
+                    </table>
+                    <p style="margin-top:50px;">Customer</p>
+                    <select class="form-control" id="getCus" name="reV_cus" required>
+                        <option value="" disabled selected>Select Customer</option>
+                    </select>
+                    <button class="btn btn-warning" style="float: right; margin-top:20px; margin-left:20px;  ">New
+                        Customer</button>
+                    <button class="btn btn-primary" style="float: right; margin-top:20px; ">Payment</button>
+                    <input type="hidden" name="employee" value="5be1ea7d0b234224b0424d50"/>
+
+
+                </div>
+                <div class="modal-footer font">
+                    <button type="button" class="btn btn-success " onclick="addReservation()" style="width:100%;">Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="/dist/jquery/dist/jquery.min.js"></script>
+    <script src="/dist/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/dist/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/moment/min/moment.min.js"></script>
+    <script src="/bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>
